@@ -1,3 +1,14 @@
+#! /usr/bin/python
+#################################################
+#		Alexa Skills Kit Hello World			#
+#################################################
+# Zachary Priddy - 2015 						#
+# me@zpriddy.com 								#
+#												#
+# Features: 									#
+#################################################
+#################################################
+
 import json
 appVersion = 1.0
 
@@ -51,26 +62,25 @@ def intent_request(session, user, request):
 
 		card_type = "Simple"
 		card_title = "HelloWorld - Title"
-		card_content = "HelloWorld - Content"
-
-		response = {"outputSpeech": {"type":output_type,"text":output_speech},"card":{"type":card_type,"title":card_title,"content":card_content},'shouldEndSession':True}
-
-		return response
-	'''
-	elif request['intent']['name'] ==  "NestSetIntent":
-		nestTempValue = request['intent']['slots']['temp']['value']
-		output_speech = "Telling Nest to cool to " + str(nestTempValue) + " degrees fahrenheit"
-		output_type = "PlainText"
-
-		card_type = "Simple"
-		card_title = "HelloWorld - Setting Nest Temp"
-		card_content = "Telling Nest to cool to " + str(nestTempValue) + " degrees fahrenheit."
+		card_content = "HelloWorld - Hi"
 
 		response = {"outputSpeech": {"type":output_type,"text":output_speech},"card":{"type":card_type,"title":card_title,"content":card_content},'shouldEndSession':True}
 
 		return response
 	
-		'''
+	elif request['intent']['name'] ==  "HelpIntent":
+		output_speech = "This is the Hello World help! Just say Hi "
+		output_type = "PlainText"
+
+		card_type = "Simple"
+		card_title = "HelloWorld - Title"
+		card_content = "HelloWorld - This is the Hello World help! Just say Hi"
+
+		response = {"outputSpeech": {"type":output_type,"text":output_speech},"card":{"type":card_type,"title":card_title,"content":card_content},'shouldEndSession':False}
+
+		return response
+	
+		
 	else:
 		return launch_request(session, user, request) ##Just do the same thing as launch request
 

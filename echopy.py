@@ -1,3 +1,14 @@
+#! /usr/bin/python
+#################################################
+#		Alexa Skills Kit Hello World			#
+#################################################
+# Zachary Priddy - 2015 						#
+# me@zpriddy.com 								#
+#												#
+# Features: 									#
+#################################################
+#################################################
+
 import os
 import echopy_app
 import echopy_doc
@@ -26,7 +37,6 @@ def apicalls():
 
 def run_echopy_app():
 	import SocketServer
-	#SocketServer.BaseServer.handle_error = close_stream
 	SocketServer.ThreadingTCPServer.allow_reuse_address = True
 	echopy_app.run(app)
 
